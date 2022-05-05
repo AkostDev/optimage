@@ -1,9 +1,5 @@
 .DS_Store
 package-lock.json
 node_modules/
-input/*.jpg
-input/*.png
-input/*.jpeg
-output/*.jpg
-output/*.png
-output/*.jpeg
+input/
+output/
