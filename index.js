@@ -24,13 +24,13 @@ const outputFilePath = 'output';
 				let imageMini = await imageThumbnail(imagePath, {
 					width: 1200
 				})
-				fs.writeFileSync(imagePath, imageMini);
+				await fs.writeFileSync(imagePath, imageMini);
 			}
 			else if (imageHeight > imageWidth && imageHeight > 1200) {
 				let imageMini = await imageThumbnail(imagePath, {
 					height: 1200
 				})
-				fs.writeFileSync(imagePath, imageMini);
+				await fs.writeFileSync(imagePath, imageMini);
 			}
 		}
 	});
