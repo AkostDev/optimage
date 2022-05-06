@@ -2,9 +2,6 @@
   "type": "module",
   "dependencies": {
     "image-size": "^1.0.1",
-    "image-thumbnail": "^1.0.14",
-    "imagemin": "^8.0.1",
-    "imagemin-mozjpeg": "^10.0.0",
-    "imagemin-pngquant": "^9.0.2"
+    "image-thumbnail": "^1.0.14"
   }
 }
