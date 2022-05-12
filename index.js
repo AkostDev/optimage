@@ -9,9 +9,9 @@ const outputFilePath = 'output';
 (async () => {
 	let files = fs.readdirSync(inputFilePath)
 
-	files.forEach(async (file) => {
+	files.forEach((file) => {
 		let extname = path.extname(file).toLowerCase();
-		if (extname == '.jpg' || extname == '.png') {
+		if (extname === '.jpg' || extname === '.jpeg' || extname === '.png') {
 			let imagePathInput = inputFilePath + '/' + file;
 			let imagePathOutput = outputFilePath + '/' + file;
 
@@ -20,38 +20,39 @@ const outputFilePath = 'output';
 			let imageHeight = dimensions.height;
 
 			if (imageWidth > imageHeight && imageWidth > 1200) {
-				let imageMini = await imageThumbnail(imagePathInput, {
+				imageThumbnail(imagePathInput, {
 					width: 1200,
 					jpegOptions: {
 						force: true,
 						quality: 80
 					}
-				})
-
-				fs.writeFileSync(imagePathOutput, imageMini);
+				}).then(imageMini => {
+					console.log( imageMini);
+					fs.writeFileSync(imagePathOutput, imageMini);
+				});
 			}
 			else if (imageHeight > imageWidth && imageHeight > 1200) {
-				let imageMini = await imageThumbnail(imagePathInput, {
+				imageThumbnail(imagePathInput, {
 					height: 1200,
 					jpegOptions: {
 						force: true,
 						quality: 80
 					}
-				})
-
-				fs.writeFileSync(imagePathOutput, imageMini);
+				}).then(imageMini => {
+					fs.writeFileSync(imagePathOutput, imageMini);
+				});
 			}
 			else {
-				let imageMini = await imageThumbnail(imagePathInput, {
+				imageThumbnail(imagePathInput, {
 					width: imageWidth,
 					height: imageHeight,
 					jpegOptions: {
 						force: true,
 						quality: 80
 					}
-				})
-
-				fs.writeFileSync(imagePathOutput, imageMini);
+				}).then(imageMini => {
+					fs.writeFileSync(imagePathOutput, imageMini);
+				});
 			}
 		}
 	})
