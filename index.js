@@ -24,10 +24,9 @@ const outputFilePath = 'output';
 					width: 1200,
 					jpegOptions: {
 						force: true,
-						quality: 80
+						quality: 90
 					}
 				}).then(imageMini => {
-					console.log( imageMini);
 					fs.writeFileSync(imagePathOutput, imageMini);
 				});
 			}
@@ -36,7 +35,7 @@ const outputFilePath = 'output';
 					height: 1200,
 					jpegOptions: {
 						force: true,
-						quality: 80
+						quality: 90
 					}
 				}).then(imageMini => {
 					fs.writeFileSync(imagePathOutput, imageMini);
@@ -48,7 +47,7 @@ const outputFilePath = 'output';
 					height: imageHeight,
 					jpegOptions: {
 						force: true,
-						quality: 80
+						quality: 90
 					}
 				}).then(imageMini => {
 					fs.writeFileSync(imagePathOutput, imageMini);
